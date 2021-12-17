@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// 使用标准的http库来实现
 func main() {
 	http.HandleFunc("/" , sayHello)
 	err := http.ListenAndServe(":9000", nil)
@@ -17,7 +18,7 @@ func main() {
 
 func sayHello(writer http.ResponseWriter, request *http.Request) {
 	//2. 解析模板
-	t, err := template.ParseFiles("./static/hello.tmpl")
+	t, err := template.ParseFiles("gin02/hello.tmpl")
 	if err != nil {
 		fmt.Printf("parse template failed, err : %v" , err)
 		return

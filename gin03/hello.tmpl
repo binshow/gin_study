@@ -7,7 +7,24 @@
 
 {{/* go 模板*/}}
 
-<p>hello {{ . }}</p>
+<p>u1</p>
+<p>hello {{ .u1.Name }}</p>
+<p>年龄: {{ .u1.Age }}</p>
+<p>性别: {{ .u1.Gender }}</p>
+
+<p>m1</p>
+<p>hello {{ .m1.Name }}</p>
+<p>年龄: {{ .m1.Age }}</p>
+<p>性别: {{ .m1.Gender }}</p>
+
+{{/*声明变量*/}}
+<hr>
+{{ $v1 := 100}}
+{{ $age := .m1.Age }}
+
+<hr>
+
+
 
 </body>
 </html>
