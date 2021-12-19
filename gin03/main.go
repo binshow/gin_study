@@ -7,27 +7,26 @@ import (
 )
 
 type Person struct {
-	Name string
+	Name   string
 	Gender string
-	Age int
+	Age    int
 }
-
 
 // 使用标准的http库来实现
 func main() {
-	http.HandleFunc("/" , sayHello)
+	http.HandleFunc("/", sayHello)
 	err := http.ListenAndServe(":9001", nil)
 	if err != nil {
-		fmt.Println("HTTP Server start failed ,err: %v\n" , err)
+		fmt.Println("HTTP Server start failed ,err: %v\n", err)
 		return
 	}
 }
 
 func sayHello(writer http.ResponseWriter, request *http.Request) {
 	//2. 解析模板
-	t, err := template.ParseFiles("gin03/hello.tmpl")
+	t, err := template.ParseFiles("gin03/f.tmpl")
 	if err != nil {
-		fmt.Printf("parse template failed, err : %v" , err)
+		fmt.Printf("parse template failed, err : %v", err)
 		return
 	}
 
@@ -39,17 +38,17 @@ func sayHello(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	m1 := map[string]interface{}{
-		"Name" : "zkd",
-		"Gender" : "女",
-		"Age" : 20,
+		"Name":   "zkd",
+		"Gender": "女",
+		"Age":    20,
 	}
 
 	err = t.Execute(writer, map[string]interface{}{
-		"u1" : u1,
-		"m1" : m1,
+		"u1": u1,
+		"m1": m1,
 	})
 	if err != nil {
-		fmt.Printf("render template failed, err : %v" , err)
+		fmt.Printf("render template failed, err : %v", err)
 		return
 	}
 }
