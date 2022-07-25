@@ -1,6 +1,8 @@
 # 基于Gin和GORM的Web服务学习
 
 
+https://gin-gonic.com/docs/examples/bind-form-data-request-with-custom-struct/
+
 
 ## gin09: 介绍中间件
 ## gin10: 介绍ORM框架 GROM 初步认识
